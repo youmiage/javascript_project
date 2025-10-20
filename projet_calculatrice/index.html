@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- Indique que la page doit s’adapter à tous les écrans (ordinateur, mobile, tablette) -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculatrice</title>
+
+  <style>
+    /* Style principal du conteneur de la calculatrice */
+    .calculator {
+        width: 250px; /* largeur fixe */
+        margin: 50px auto; /* centrée horizontalement avec un espace en haut */
+        border: 2px solid #333; /* bordure grise foncée */
+        border-radius: 8px; /* coins arrondis */
+        padding: 10px; /* marge intérieure */
+    }
+
+    /* Zone d’affichage (écran de la calculatrice) */
+    .display {
+        height: 40px;
+        background: #000; /* fond noir */
+        color: #0f0; /* texte vert style rétro */
+        text-align: right; /* chiffres alignés à droite */
+        font-size: 1.5em; /* texte plus grand */
+        padding: 5px;
+        margin-bottom: 10px;
+        border-radius: 4px;
+    }
+
+    /* Zone contenant les boutons (grille 4xN) */
+    .keys {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr); /* 4 colonnes de même largeur */
+        gap: 5px; /* espace entre les boutons */
+    }
+
+    /* Style général des boutons */
+    button {
+        padding: 15px;
+        font-size: 1.1em;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    /* Zone de l’historique des calculs */
+    #history {
+        margin-top: 10px;
+        font-size: 0.9em;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="wrapper">
+    <!-- Conteneur principal de la calculatrice -->
+    <div class="calculator">
+
+      <!-- Écran d’affichage des nombres et résultats -->
+      <div class="display" id="display">0</div>
+
+      <!-- Ensemble des touches de la calculatrice -->
+      <div class="keys" id="keys">
+        <!-- Ligne 1 : commandes spéciales -->
+        <button data-type="cmd" data-value="AC">AC</button> <!-- Efface tout -->
+        <button data-type="cmd" data-value="CE">CE</button> <!-- Efface la dernière saisie -->
+        <button data-type="cmd" data-value="neg">±</button> <!-- Change le signe -->
+        <button data-type="op" data-value="÷">÷</button>   <!-- Division -->
+
+        <!-- Ligne 2 -->
+        <button data-type="digit" data-value="7">7</button>
+        <button data-type="digit" data-value="8">8</button>
+        <button data-type="digit" data-value="9">9</button>
+        <button data-type="op" data-value="×">×</button>   <!-- Multiplication -->
+
+        <!-- Ligne 3 -->
+        <button data-type="digit" data-value="4">4</button>
+        <button data-type="digit" data-value="5">5</button>
+        <button data-type="digit" data-value="6">6</button>
+        <button data-type="op" data-value="-">−</button>   <!-- Soustraction -->
+
+        <!-- Ligne 4 -->
+        <button data-type="digit" data-value="1">1</button>
+        <button data-type="digit" data-value="2">2</button>
+        <button data-type="digit" data-value="3">3</button>
+        <button data-type="op" data-value="+">+</button>   <!-- Addition -->
+
+        <!-- Ligne 5 -->
+        <button data-type="digit" data-value="0" style="grid-column: span 2;">0</button>
+        <!-- Le bouton "0" occupe deux colonnes -->
+        <button data-type="digit" data-value=".">.</button> <!-- Virgule décimale -->
+        <button data-type="eq">=</button> <!-- Égal pour calculer -->
+      </div>
+
+      <!-- Historique des calculs récents -->
+      <ul id="history"></ul>
+    </div>
+  </div>
+
+  <!-- Script JavaScript externe pour la logique de la calculatrice -->
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <!-- Déclare l’encodage des caractères pour afficher correctement les accents -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Permet à la page de s’adapter à tous les écrans (ordinateur, mobile, tablette) -->
+  <title>Mini Pokédex</title>
+
+  <style>
+    /* Style général du corps de la page */
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: #f0f0f0;
+      margin: 20px;
+    }
+
+    /* Style de la carte qui affiche les infos du Pokémon */
+    .card {
+      margin: 20px auto;
+      padding: 20px;
+      width: 250px;
+      border: 3px solid #333;
+      border-radius: 12px;
+      background: white;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* petite ombre pour effet 3D */
+    }
+
+    /* Image du Pokémon */
+    #sprite {
+      width: 120px;
+      height: 120px;
+    }
+
+    /* Message de statut ("Prêt...", "Chargement...", etc.) */
+    #status {
+      margin-top: 10px;
+      font-style: italic;
+      color: gray;
+    }
+
+    /* Liste de l’historique des recherches */
+    #history {
+      margin-top: 20px;
+      list-style: none; /* enlève les puces */
+      padding: 0;
+    }
+
+    /* Style des éléments de la liste d’historique */
+    #history li {
+      background: #ddd;
+      margin: 3px;
+      padding: 5px;
+      border-radius: 6px;
+    }
+
+    /* Style des boutons */
+    button {
+      margin: 5px;
+      padding: 8px 12px;
+      border-radius: 8px;
+      border: none;
+      background: #3b4cca; /* bleu Pokémon */
+      color: white;
+      cursor: pointer;
+    }
+
+    /* Effet au survol du bouton */
+    button:hover {
+      background: #2a349d;
+    }
+  </style>
+</head>
+<body>
+  <!-- Titre principal -->
+  <h1>Mini Pokédex</h1>
+  
+  <!-- Champ de saisie du nom ou ID du Pokémon -->
+  <input type="text" id="q" placeholder="Nom ou ID Pokémon">
+
+  <!-- Bouton de recherche -->
+  <button id="searchBtn">Search</button>
+
+  <!-- Bouton pour obtenir un Pokémon aléatoire -->
+  <button id="randomBtn">Surprise me</button>
+
+  <!-- Bouton pour annuler la recherche en cours -->
+  <button id="cancelBtn">Cancel</button>
+
+  <!-- Zone de statut pour informer l’utilisateur -->
+  <div id="status">Prêt...</div>
+  
+  <!-- Carte affichant les informations du Pokémon -->
+  <div class="card" id="card">
+    <h2 id="name">---</h2> <!-- Nom du Pokémon -->
+    <img id="sprite" src="" alt=""> <!-- Image du Pokémon -->
+    <p id="types">Types: ---</p> <!-- Type(s) du Pokémon -->
+    <p id="stats">Stats: ---</p> <!-- Statistiques principales -->
+  </div>
+
+  <!-- Historique des dernières recherches -->
+  <h3>Dernières recherches</h3>
+  <ul id="history"></ul>
+
+  <!-- Lien vers le script JavaScript externe -->
+  <script src="script.js"></script>
+</body>
+</html>
+
